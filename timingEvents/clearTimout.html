@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Timout Ex</title>
+</head>
+<body>
+    <div>
+        <h1>Want to See My Name?</h1>
+        <p id = "targetEle"></p>
+        <button id = "yesBtn" onclick = "displayName()">Click me </button>
+        <button id = "noBtn" onclick= "stopName()">Stop</button>
+    </div>
+
+    <script>
+
+        let id;
+
+        function displayName(){
+            let targetEle = document.getElementById("targetEle");
+            targetEle.innerHTML = "Loading...";
+            id = setTimeout(()=>{
+                targetEle.innerHTML = "Lakshay Gupta";
+            }, 2000)
+        }
+
+        function stopName(){
+            let targetEle = document.getElementById("targetEle");
+            clearTimeout(id);
+            targetEle.innerHTML = "Stopped";
+        }
+    </script>
+</body>
+</html>

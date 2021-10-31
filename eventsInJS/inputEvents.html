@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Events</title>
+</head>
+<body>
+    <div class="main-div">
+        <select name="Fruits" id="favFruit" >
+            <option value="Apple">Apple</option>
+            <option value="Orange">Orange</option>
+            <option value="Litchi">Litchi</option>
+        </select>
+        <h1 id = "target"></h1>
+    </div>
+    
+    <script>
+        const favFruit = document.getElementById("favFruit");
+
+        // function changed(){
+        //     console.log(favFruit);
+        //     console.log(favFruit.value);
+        //     document.getElementById('target').innerHTML = favFruit.value;
+        // }
+        favFruit.addEventListener('change', ()=>{
+            document.getElementById('target').innerHTML = favFruit.value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+*{
+    margin : 0;
+    padding: 0;
+    background-color: rgb(41, 41, 110);
+}
+
+.child-1{
+    margin : 6rem;
+}
+
+.child-2{
+    margin : 6rem;
+}
+
+.child-3{
+    margin : 6rem;
+}
+
+p{
+    font-size: large;
+    color: #fff;
+    text-align: center;
+}

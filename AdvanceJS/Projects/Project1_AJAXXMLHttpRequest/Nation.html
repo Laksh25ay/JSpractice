@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(41, 40, 40);
+        }
+
+        main {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #targetEle {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: padding ease;
+        }
+
+        #targetEle:hover {
+            padding: 3rem;
+            box-shadow: 9px 9px 2px 1px rgb(190, 243, 130, 0.2);
+        }
+
+        #Name {
+            background-color: #fff;
+        }
+
+        #capital {
+            background-color: #fff;
+        }
+
+        img {
+            width: 75%;
+        }
+
+        .changeCountryDiv {
+            padding: 1.5rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            border-radius: 2rem;
+            border: 3px solid cyan;
+            background-color: rgb(56, 146, 146);
+            color: white;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <div id="targetEle">
+            <h1 id="Name"></h1>
+            <img id="Flag" src="" alt="">
+            <h5 id="capital"></h5>
+        </div>
+        <div class="changeCountryDiv" onclick="changeCountry()">
+            Click here To enter another Country
+        </div>
+    </main>
+
+    <script>
+        const targetEle = document.getElementById("targetEle");
+        const countryName = document.getElementById("Name");
+        const countryFlag = document.getElementById("Flag");
+        const countryCapital = document.getElementById("capital");
+
+        let Country = "India";
+
+        let request = new XMLHttpRequest();
+        request.open('GET', `https://restcountries.com/v3.1/name/${Country}`);
+        request.send();
+
+        function changeCountry() {
+            let newCountry = prompt("Enter another Country");
+            Country = newCountry;
+            request.open('GET', `https://restcountries.com/v3.1/name/${Country}`);
+            request.send();
+        }
+
+        //To get Response
+        request.addEventListener('load', function () {
+            const [data] = JSON.parse(this.responseText);
+
+            //Using some data
+            const name = data.name.common;
+            const capital = data.capital[0];
+            const flag = data.flags.png;
+
+            //Appending data to HTML elements
+            countryName.innerHTML = name;
+            countryFlag.src = `${flag}`;
+            countryCapital.innerHTML = capital;
+
+        });
+
+    </script>
+</body>
+
+</html>

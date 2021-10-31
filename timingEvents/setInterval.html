@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count to Five</title>
+</head>
+<body>
+    <div>
+        <h1>Countdown</h1>
+        <p id = "targetEle"></p>
+        <button id = "start" onclick = "count()">Click To Start Countdown</button>
+    </div>
+
+    <script>
+        let target = document.getElementById("targetEle");
+
+        let ctr = 5;
+        
+        function count(){
+            let id = setInterval( ()=>{
+                if(ctr >= 0){
+                    target.innerHTML = ctr--;
+                }
+                else{
+                    clearInterval(id);
+                }
+            }, 1000 );
+        }
+    </script>
+</body>
+</html>

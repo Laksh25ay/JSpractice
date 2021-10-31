@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capturing</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        main {
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(196, 238, 238);
+        }
+
+        .Parent {
+            background-color: rgb(116, 245, 245);
+            padding: 10rem;
+            cursor: pointer;
+            position: relative;
+            border: 5px solid rgb(31, 165, 228);
+            width: 15%;
+        }
+
+        .Child {
+            text-align: center;
+            background-color: rgb(5, 236, 159);
+            border: 5px solid rgb(50, 243, 114);
+            padding: 5rem;
+            cursor: pointer;
+            margin-bottom: 4.5rem;
+            margin-left : 2rem;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+
+    <main>
+        <div class="Parent">
+            <div class="Child">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let parent = document.querySelector(".Parent");
+        let child = document.querySelector(".Child");
+
+        function p() {
+            alert("Parent Clicked!");
+        }
+
+        function c(){
+            alert("Child Clicked!");
+            // event.stopPropagation();
+        }
+
+        parent.addEventListener('click', p, true);
+        child.addEventListener('click', c);
+    
+    </script>
+</body>
+
+</html>

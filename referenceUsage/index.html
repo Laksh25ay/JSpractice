@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetching Using Reference</title>
+</head>
+<body>
+    <div class="main-div">
+        <h1>Welcome</h1>
+        <p class = "para">Para 1</p>
+        <p class = "para">Para 2</p>
+        <p class = "para">         Para 3</p>
+        <h2 id = "header">Reference Fetching...</h2>
+
+        <a href="#" id = "eventListener">
+            <span>Click Me</span>
+        </a>
+
+        <form action="">
+            <input type="radio" name = "gender"> Male
+            <input type="radio" name = "gender"> Female
+        </form>
+
+        <button onclick="change()">Click me</button>
+    </div>
+    <script>
+        function change(){
+            //getting reference
+            const heading = document.getElementById("header");
+            heading.innerHTML = "Content Changed using reference";
+            
+            // console.log(document.getElementsByClassName('para'));
+            // document.querySelector(".para").innerHTML = "Heelo"; 
+            
+            console.log(document.querySelectorAll(".para")); 
+        }
+    </script>  
+</body>
+</html>
